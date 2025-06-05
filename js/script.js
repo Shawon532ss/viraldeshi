@@ -8,7 +8,10 @@ const sampleData = [
     thumbnail: "images/1.jpg",
     category: "videos",
     type: "video",
-    videoUrl: "https://terabox.com/s/1RtmabxKH4WbqWT6kUpG86A",
+    imageUrl: "images/1.jpg",
+    linkUrl: "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
+    playUrl: "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
+    downloadUrl: "https://terabox.com/s/1RtmabxKH4WbqWT6kUpG86A",
     date: "2025-06-05",
     views: "1.2M",
     likes: "50K",
@@ -248,7 +251,7 @@ function showPost(id) {
   document.getElementById("post-content").innerHTML = post.content;
 
   // Handle media based on type
-  const mediaContainer = document.getElementById("post-media");
+  /*const mediaContainer = document.getElementById("post-media");
   if (post.type === "video") {
     mediaContainer.innerHTML = `
                     <div class="video-container">
@@ -261,7 +264,34 @@ function showPost(id) {
                 `;
   } else {
     mediaContainer.innerHTML = "";
-  }
+  }*/
+
+  const mediaContainer = document.getElementById("post-media");
+
+if (post.imageUrl) {
+  mediaContainer.innerHTML = `
+    <a href="${post.linkUrl}" style="display: block; width: 100%; max-width: 400px; margin: 0 auto; text-decoration: none;">
+    <div style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <img src="${post.imageUrl}" alt="${post.title}" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+  </a>
+
+  <!-- Buttons below image -->
+  <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+    <a href="${post.playUrl}" style="padding: 10px 20px; background-color: #ff4757; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
+      ▶️ Play Video
+    </a>
+    <a href="${post.downloadUrl}" style="padding: 10px 20px; background-color: #1e90ff; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
+      ⬇️ Download
+    </a>
+  </div>
+  `;
+
+
+} else {
+  mediaContainer.innerHTML = "";
+}
+
 
   // Show post page
   document.getElementById("home-page").style.display = "none";
