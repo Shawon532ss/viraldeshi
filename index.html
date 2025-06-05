@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viral Deshi - Latest Bangladeshi Viral Content</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Discover the latest viral Bangladeshi content, videos, memes, and trending stories. Stay updated with Deshi viral content daily!"
+    />
+    <meta
+      name="keywords"
+      content="bangladesh viral, deshi viral, bangladeshi memes, viral videos bangladesh, trending bangladesh, deshi content"
+    />
+    <meta name="author" content="Viral Deshi" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Viral Deshi - Latest Bangladeshi Viral Content"
+    />
+    <meta
+      property="og:description"
+      content="Discover the latest viral Bangladeshi content, videos, memes, and trending stories."
+    />
+    <meta property="og:image" content="images/Screenshot_1.png" />
+    <meta property="og:url" content="https://your-site.netlify.app" />                      <!-- Netlify Site Add -->
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Viral Deshi - Latest Bangladeshi Viral Content"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover the latest viral Bangladeshi content, videos, memes, and trending stories."
+    />
+    <meta name="twitter:image" content="images/Screenshot_1.png" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzAwNkE0RSIvPgo8dGV4dCB4PSI1IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlY8L3RleHQ+Cjx0ZXh0IHg9IjE5IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRDcwMCI+RDwvdGV4dD4KPC9zdmc+Cg=="
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#" onclick="showHome()">
+          Viral <span class="highlight">Deshi</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="showHome()">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="filterCategory('trending')"
+                >Trending</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="filterCategory('videos')"
+                >Videos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="filterCategory('images')"
+                >Images</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="filterCategory('stories')"
+                >Stories</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Home Page -->
+      <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                Viral <span style="color: var(--secondary-color)">Deshi</span>
+              </h1>
+              <p class="hero-subtitle">
+                বাংলাদেশের সবচেয়ে ভাইরাল কন্টেন্ট এক জায়গায়
+              </p>
+
+              <div class="search-bar">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search viral content..."
+                  id="searchInput"
+                />
+                <button class="search-btn" onclick="searchContent()">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Category Tabs -->
+        <section class="category-tabs">
+          <div class="container text-center">
+            <button class="tab-btn active" onclick="filterCategory('all')">
+              All Content
+            </button>
+            <button class="tab-btn" onclick="filterCategory('trending')">
+              🔥 Trending
+            </button>
+            <button class="tab-btn" onclick="filterCategory('videos')">
+              📹 Videos
+            </button>
+            <button class="tab-btn" onclick="filterCategory('images')">
+              🖼️ Images
+            </button>
+            <button class="tab-btn" onclick="filterCategory('stories')">
+              📖 Stories
+            </button>
+          </div>
+        </section>
+
+        <!-- Ad Placeholder -->
+        <div class="container">
+          <div class="ad-placeholder">
+            <!-- Adsterra Banner Ad Placeholder -->
+            <p>🔴 Advertisement Space - Adsterra Banner</p>
+            <small>Replace this with your Adsterra banner code</small>
+          </div>
+        </div>
+
+        <!-- Content Grid -->
+        <section class="container">
+          <div class="content-grid" id="content-grid">
+            <div class="loading">
+              <div class="spinner"></div>
+              <p>Loading viral content...</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Post Page -->
+      <div id="post-page" style="display: none;">
+        <div class="container">
+          <a href="#" class="back-btn" onclick="showHome()">
+            <i class="fas fa-arrow-left"></i> Back to Home
+          </a>
+
+          <article class="post-page">
+            <div class="post-header">
+              <h1 class="post-title" id="post-title"></h1>
+              <div class="post-meta">
+                <span
+                  ><i class="fas fa-calendar"></i> <span id="post-date"></span
+                ></span>
+                <span
+                  ><i class="fas fa-eye"></i>
+                  <span id="post-views"></span> views</span
+                >
+                <span
+                  ><i class="fas fa-heart"></i>
+                  <span id="post-likes"></span> likes</span
+                >
+              </div>
+            </div>
+
+            <div id="post-media"></div>
+
+            <!-- Ad Placeholder -->
+            <div class="ad-placeholder">
+              <p>🔴 Advertisement - Adsterra Rectangle</p>
+              <small>Replace with your Adsterra rectangle ad code</small>
+            </div>
+
+            <div class="post-content" id="post-content"></div>
+
+            <div class="social-share">
+              <a
+                href="#"
+                class="share-btn facebook"
+                onclick="sharePost('facebook')"
+              >
+                <i class="fab fa-facebook-f"></i> Share on Facebook
+              </a>
+              <a
+                href="#"
+                class="share-btn twitter"
+                onclick="sharePost('twitter')"
+              >
+                <i class="fab fa-twitter"></i> Tweet
+              </a>
+              <a
+                href="#"
+                class="share-btn whatsapp"
+                onclick="sharePost('whatsapp')"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a
+                href="#"
+                class="share-btn telegram"
+                onclick="sharePost('telegram')"
+              >
+                <i class="fab fa-telegram"></i> Telegram
+              </a>
+            </div>
+
+            <!-- Ad Placeholder -->
+            <div class="ad-placeholder">
+              <p>🔴 Advertisement - Adsterra Banner</p>
+              <small>Replace with your Adsterra banner code</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Viral Deshi</h4>
+            <p>
+              বাংলাদেশের সবচেয়ে জনপ্রিয় ভাইরাল কন্টেন্ট প্ল্যাটফর্ম। প্রতিদিন
+              নতুন নতুন ভাইরাল ভিডিও, ছবি এবং গল্প দেখুন।
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" onclick="showHome()">Home</a></li>
+              <li>
+                <a href="#" onclick="filterCategory('trending')">Trending</a>
+              </li>
+              <li><a href="#" onclick="filterCategory('videos')">Videos</a></li>
+              <li><a href="#" onclick="filterCategory('images')">Images</a></li>
+              <li>
+                <a href="#" onclick="filterCategory('stories')">Stories</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#" style="margin-right: 1rem"
+                ><i class="fab fa-facebook-f"></i> Facebook</a
+              ><br />
+              <a href="#" style="margin-right: 1rem"
+                ><i class="fab fa-youtube"></i> YouTube</a
+              ><br />
+              <a href="#" style="margin-right: 1rem"
+                ><i class="fab fa-telegram"></i> Telegram</a
+              ><br />
+              <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Viral Deshi. All rights reserved. | Made with ❤️ for
+            Bangladesh
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Adsterra Popunder Script Placeholder -->
+    <script src="js/Adsterra Script.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
