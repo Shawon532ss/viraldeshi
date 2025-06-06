@@ -1,39 +1,8 @@
-// Sample Data - Replace with your actual content
-const sampleData = [
-  {
-    id: 1,
-    title: "Bacha bhut natkhat hai 😂",
-    description:
-      "Baccha bahut natkhat hai 😂 or maa ko malai ke Bina kela acha nhi lgta",
-    thumbnail: "images/1.jpg",
-    category: "videos",
-    type: "video",
-    imageUrl: "images/1.jpg",
-    linkUrl: "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
-    playUrl: "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
-    downloadUrl: "https://terabox.com/s/1RtmabxKH4WbqWT6kUpG86A",
-    date: "2025-06-05",
-    views: "1.2M",
-    likes: "50K",
-    content: `
-                    <p>Baccha bahut natkhat hai 😂 or maa ko malai ke Bina kela acha nhi lgta</p>
-                    
-                    <p>Baccha bahut natkhat hai 😂 or maa ko malai ke Bina kela acha nhi lgta Baccha bahut natkhat hai 😂 or maa ko malai ke Bina kela acha nhi lgta</p>
-                    
-                    <h3>Today Viral</h3>
-                    <ul>
-                        <li>Hot Girl</li>
-                        <li>Wow</li>
-                        <li>Sure</li>
-                    </ul>
-                    
-                    <p>Bacha bhut natkhat hai 😂</p>
-                `,
-  },
-];
-
 let currentData = [...sampleData];
 let currentPost = null;
+let itemsPerLoad = 10;
+let currentIndex = 0;
+let loading = false;
 
 // Initialize the app
 document.addEventListener("DOMContentLoaded", function () {
@@ -46,46 +15,83 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadContent(data = currentData) {
   const grid = document.getElementById("content-grid");
 
-  if (data.length === 0) {
-    grid.innerHTML = '<div class="loading"><p>No content found</p></div>';
-    return;
+  if (currentIndex === 0) {
+    grid.innerHTML = "";
   }
 
-  grid.innerHTML = data
-    .map(
-      (item) => `
-                <div class="content-card" onclick="showPost(${item.id})">
-                    <div style="position: relative;">
-                        <img src="${item.thumbnail}" alt="${
-        item.title
-      }" class="card-thumbnail" 
-                             onerror="this.src='https://via.placeholder.com/300x200/006A4E/FFFFFF?text=Viral+Deshi'">
-                        <div class="card-badge">${item.category.toUpperCase()}</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">${item.title}</h3>
-                        <p class="card-description">${item.description}</p>
-                        <div class="card-meta">
-                            <span><i class="fas fa-calendar"></i> ${formatDate(
-                              item.date
-                            )}</span>
-                            <div class="card-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-eye"></i>
-                                    <span>${item.views}</span>
-                                </div>
-                                <div class="stat-item">
-                                    <i class="fas fa-heart"></i>
-                                    <span>${item.likes}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-    )
-    .join("");
+  const nextItems = data.slice(currentIndex, currentIndex + itemsPerLoad);
+
+  nextItems.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "content-card";
+    card.setAttribute("onclick", `showPost(${item.id})`);
+    card.innerHTML = `
+      <div style="position: relative;">
+        <img src="${item.thumbnail}" alt="${item.title}" class="card-thumbnail"
+             onerror="this.src='https://via.placeholder.com/300x200/006A4E/FFFFFF?text=Viral+Deshi'">
+        <div class="card-badge">${item.category.toUpperCase()}</div>
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">${item.title}</h3>
+        <p class="card-description">${item.description}</p>
+        <div class="card-meta">
+          <span><i class="fas fa-calendar"></i> ${formatDate(item.date)}</span>
+          <div class="card-stats">
+            <div class="stat-item">
+              <i class="fas fa-eye"></i>
+              <span>${item.views}</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-heart"></i>
+              <span>${item.likes}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  currentIndex += itemsPerLoad;
+  loading = false;
+
+  if (currentIndex >= data.length) {
+    document.getElementById("loading-message").innerText =
+      "No more content to load.";
+  } else {
+    document.getElementById("loading-message").innerText = "";
+  }
 }
+
+// Infinite scroll
+window.addEventListener("scroll", function () {
+  if (
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 300 &&
+    !loading &&
+    currentIndex < currentData.length
+  ) {
+    loading = true;
+    document.getElementById("loading-spinner").style.display = "block";
+
+    setTimeout(() => {
+      loadContent();
+      document.getElementById("loading-spinner").style.display = "none";
+    }, 500);
+  }
+});
+
+// Add spinner and message container
+const spinner = document.createElement("div");
+spinner.id = "loading-spinner";
+spinner.className = "spinner";
+spinner.style = "display: none; margin: 20px auto;";
+document.getElementById("content-grid").after(spinner);
+
+const message = document.createElement("p");
+message.id = "loading-message";
+message.style =
+  "text-align: center; color: #888; margin-top: 10px; font-weight: 500;";
+document.getElementById("loading-spinner").after(message);
 
 // Show individual post
 function showPost(id) {
@@ -119,8 +125,8 @@ function showPost(id) {
 
   const mediaContainer = document.getElementById("post-media");
 
-if (post.imageUrl) {
-  mediaContainer.innerHTML = `
+  if (post.imageUrl) {
+    mediaContainer.innerHTML = `
     <a href="${post.linkUrl}" style="display: block; width: 100%; max-width: 400px; margin: 0 auto; text-decoration: none;">
     <div style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
       <img src="${post.imageUrl}" alt="${post.title}" style="width: 100%; height: 100%; object-fit: cover;">
@@ -137,12 +143,9 @@ if (post.imageUrl) {
     </a>
   </div>
   `;
-
-
-} else {
-  mediaContainer.innerHTML = "";
-}
-
+  } else {
+    mediaContainer.innerHTML = "";
+  }
 
   // Show post page
   document.getElementById("home-page").style.display = "none";
