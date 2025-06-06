@@ -8,5 +8,3 @@
   script.async = true;
   document.head.appendChild(script);
 })();
-
-console.log("Adsterra popunder placeholder - replace with your actual code");

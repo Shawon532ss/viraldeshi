@@ -123,6 +123,7 @@ function showPost(id) {
     mediaContainer.innerHTML = "";
   }*/
 
+    // Handle Images based on type
   const mediaContainer = document.getElementById("post-media");
 
   if (post.imageUrl) {
