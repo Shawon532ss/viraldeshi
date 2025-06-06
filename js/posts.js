@@ -37,10 +37,10 @@ const sampleData = [
     title: "ExploitedCollegeGirls Rosana",
     description:
       "ExploitedCollegeGirls Rosana",
-    thumbnail: "https://1024terabox.com/s/1LtPtAlT33PxkAyxXjkw6sw",
+    thumbnail: "https://i.imgur.com/RUuUxy7.jpeg",
     category: "videos",
     type: "video",
-    imageUrl: "https://1024terabox.com/s/1LtPtAlT33PxkAyxXjkw6sw",
+    imageUrl: "https://i.imgur.com/RUuUxy7.jpeg",
     linkUrl:
       "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
     playUrl:
