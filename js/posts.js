@@ -32,4 +32,36 @@ const sampleData = [
                       <p>Bacha bhut natkhat hai 😂</p>
                   `,
   },
+  {
+    id: 2,
+    title: "ExploitedCollegeGirls Rosana",
+    description:
+      "ExploitedCollegeGirls Rosana",
+    thumbnail: "https://1024terabox.com/s/1LtPtAlT33PxkAyxXjkw6sw",
+    category: "videos",
+    type: "video",
+    imageUrl: "https://1024terabox.com/s/1LtPtAlT33PxkAyxXjkw6sw",
+    linkUrl:
+      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
+    playUrl:
+      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
+    downloadUrl: "https://1024terabox.com/s/1rzippGLY2JUDzo-sLhD5TQ",
+    date: "2025-06-06",
+    views: "1.2k",
+    likes: "50",
+    content: `
+                      <p>ExploitedCollegeGirls Rosana</p>
+                      
+                      <p>ExploitedCollegeGirls Rosana ExploitedCollegeGirls Rosana</p>
+                      
+                      <h3>Today Viral</h3>
+                      <ul>
+                          <li>Hot Girl</li>
+                          <li>Wow</li>
+                          <li>Sure</li>
+                      </ul>
+                      
+                      <p>ExploitedCollegeGirls Rosana 😂</p>
+                  `,
+  },
 ];
