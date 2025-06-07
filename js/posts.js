@@ -6,6 +6,7 @@ const sampleData = [
     description:
       "Baccha bahut natkhat hai 😂 or maa ko malai ke Bina kela acha nhi lgta",
     thumbnail: "images/1.jpg",
+    duration: "10:00",
     category: "videos",
     type: "video",
     imageUrl: "images/1.jpg",
@@ -38,6 +39,7 @@ const sampleData = [
     description:
       "ExploitedCollegeGirls Rosana",
     thumbnail: "https://i.imgur.com/hhKe5Xk.jpeg",
+    duration: "1:10:00",
     category: "videos",
     type: "video",
     imageUrl: "https://i.imgur.com/hhKe5Xk.jpeg",
