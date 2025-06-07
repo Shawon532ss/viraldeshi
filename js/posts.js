@@ -42,9 +42,42 @@ const sampleData = [
     type: "video",
     imageUrl: "https://i.imgur.com/hhKe5Xk.jpeg",
     linkUrl:
-      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
+      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4", // Adsterra direct link
     playUrl:
-      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4",
+      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4", // টেলিগ্রাম চ্যানেলের ভিডিওর শেয়ার লিংক
+    downloadUrl: "https://1024terabox.com/s/1rzippGLY2JUDzo-sLhD5TQ",
+    date: "2025-06-06",
+    views: "1.2k",
+    likes: "50",
+    content: `
+                      <p>ExploitedCollegeGirls Rosana</p>
+                      
+                      <p>ExploitedCollegeGirls Rosana ExploitedCollegeGirls Rosana</p>
+                      
+                      <h3>Today Viral</h3>
+                      <ul>
+                          <li>Hot Girl</li>
+                          <li>Wow</li>
+                          <li>Sure</li>
+                      </ul>
+                      
+                      <p>ExploitedCollegeGirls Rosana 😂</p>
+                  `,
+  },
+  {
+    id: 2,
+    title: "ExploitedCollegeGirls Rosana",
+    description:
+      "ExploitedCollegeGirls Rosana",
+    thumbnail: "https://i.imgur.com/hhKe5Xk.jpeg",
+    duration: "1:10:00",
+    category: "videos",
+    type: "video",
+    imageUrl: "https://i.imgur.com/hhKe5Xk.jpeg",
+    linkUrl:
+      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4", // Adsterra direct link
+    playUrl:
+      "https://nicecartrigezip.com/fzmw5t9em?key=26e4da6feb2ec7fc15820e12ef8a45e4", // টেলিগ্রাম চ্যানেলের ভিডিওর শেয়ার লিংক
     downloadUrl: "https://1024terabox.com/s/1rzippGLY2JUDzo-sLhD5TQ",
     date: "2025-06-06",
     views: "1.2k",

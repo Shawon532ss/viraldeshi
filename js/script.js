@@ -36,6 +36,7 @@ function loadContent(data = currentData) {
         <p class="card-description">${item.description}</p>
         <div class="card-meta">
           <span><i class="fas fa-calendar"></i> ${formatDate(item.date)}</span>
+          <span><i class="fas fa-clock"></i> ${item.duration}</span>
           <div class="card-stats">
             <div class="stat-item">
               <i class="fas fa-eye"></i>
@@ -107,23 +108,6 @@ function showPost(id) {
   document.getElementById("post-likes").textContent = post.likes;
   document.getElementById("post-content").innerHTML = post.content;
 
-  // Handle media based on type
-  /*const mediaContainer = document.getElementById("post-media");
-  if (post.type === "video") {
-    mediaContainer.innerHTML = `
-                    <div class="video-container">
-                        <iframe src="${post.videoUrl}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                `;
-  } else if (post.type === "image") {
-    mediaContainer.innerHTML = `
-                    <img src="${post.imageUrl}" alt="${post.title}" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                `;
-  } else {
-    mediaContainer.innerHTML = "";
-  }*/
-
-    // Handle Images based on type
   const mediaContainer = document.getElementById("post-media");
 
   if (post.imageUrl) {
@@ -134,7 +118,6 @@ function showPost(id) {
     </div>
   </a>
 
-  <!-- Buttons below image -->
   <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
     <a href="${post.playUrl}" style="padding: 10px 20px; background-color: #ff4757; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
       ▶️ Play Video
@@ -148,51 +131,40 @@ function showPost(id) {
     mediaContainer.innerHTML = "";
   }
 
-  // Show post page
   document.getElementById("home-page").style.display = "none";
   document.getElementById("post-page").style.display = "block";
 
-  // Update URL without page reload
   window.history.pushState({ page: "post", id: id }, post.title, `#post-${id}`);
-
-  // Update page title and meta
   document.title = `${post.title} - Viral Deshi`;
   updateMetaTags(post);
-
-  // Scroll to top
   window.scrollTo(0, 0);
 }
 
-// Show home page
 function showHome() {
   document.getElementById("home-page").style.display = "block";
   document.getElementById("post-page").style.display = "none";
 
   window.history.pushState({ page: "home" }, "Viral Deshi", "/");
   document.title = "Viral Deshi - Latest Bangladeshi Viral Content";
-
   window.scrollTo(0, 0);
 }
 
-// Filter content by category
 function filterCategory(category) {
-  // Update active tab
   document
     .querySelectorAll(".tab-btn")
     .forEach((btn) => btn.classList.remove("active"));
   event.target.classList.add("active");
 
-  // Filter data
   if (category === "all") {
     currentData = [...sampleData];
   } else {
     currentData = sampleData.filter((item) => item.category === category);
   }
 
+  currentIndex = 0;
   loadContent(currentData);
 }
 
-// Search functionality
 function setupSearch() {
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("keypress", function (e) {
@@ -219,10 +191,10 @@ function searchContent() {
     );
   }
 
+  currentIndex = 0;
   loadContent(currentData);
 }
 
-// Theme toggle
 function toggleTheme() {
   const body = document.body;
   const themeIcon = document.getElementById("theme-icon");
@@ -249,7 +221,6 @@ function initializeTheme() {
   }
 }
 
-// Social sharing
 function sharePost(platform) {
   if (!currentPost) return;
 
@@ -279,7 +250,6 @@ function sharePost(platform) {
   }
 }
 
-// Utility functions
 function formatDate(dateString) {
   const date = new Date(dateString);
   const now = new Date();
@@ -297,7 +267,6 @@ function formatDate(dateString) {
 }
 
 function updateMetaTags(post) {
-  // Update Open Graph tags
   document
     .querySelector('meta[property="og:title"]')
     .setAttribute("content", post.title);
@@ -308,7 +277,6 @@ function updateMetaTags(post) {
     .querySelector('meta[property="og:image"]')
     .setAttribute("content", post.thumbnail);
 
-  // Update Twitter Card tags
   document
     .querySelector('meta[name="twitter:title"]')
     .setAttribute("content", post.title);
@@ -320,7 +288,6 @@ function updateMetaTags(post) {
     .setAttribute("content", post.thumbnail);
 }
 
-// Handle browser back/forward
 window.addEventListener("popstate", function (event) {
   if (event.state) {
     if (event.state.page === "home") {
@@ -333,7 +300,6 @@ window.addEventListener("popstate", function (event) {
   }
 });
 
-// Handle initial URL
 window.addEventListener("load", function () {
   const hash = window.location.hash;
   if (hash.startsWith("#post-")) {
@@ -376,7 +342,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Performance optimization - defer non-critical CSS
 function loadNonCriticalCSS() {
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -385,5 +350,4 @@ function loadNonCriticalCSS() {
   document.head.appendChild(link);
 }
 
-// Load non-critical resources after page load
 window.addEventListener("load", loadNonCriticalCSS);
