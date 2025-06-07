@@ -478,10 +478,18 @@ body.dark-mode {
     font-size: 0.9rem;
   }
 }
+.ad-placeholder-responsive {
+    width: 100%;
+    max-width: 728px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+  }
 
-.ad-placeholder {
-  padding: 2rem;
-  text-align: center;
-  margin: 2rem 0;
-  font-style: italic;
-}
+  /* Adjust for smaller devices */
+  @media (max-width: 768px) {
+    .ad-placeholder-responsive iframe {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
